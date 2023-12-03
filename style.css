@@ -1,0 +1,298 @@
+@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;800;900&display=swap);
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+body {
+    width: 100%;
+    height: 100vh;
+    background-color: var(--background-color1);
+    font-family: 'Poppins', sans-serif;
+}
+
+html{
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar{
+    width: 0.625rem;
+    /* border: 2px solid red; */
+}
+
+::-webkit-scrollbar-thumb{
+    /* border: 2px solid yellow; */
+    background-color:#eee;
+    border-radius: 50px;
+    box-shadow: 0 0 1rem 0rem rgba(0, 0, 0, 0.3);
+}
+
+.container{
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/*------------ color variable---------------*/
+:root{
+    --background-color1 :#fff;
+    --background-color2: #eee;
+    --gradient-color:linear-gradient(to left,green,rgba(0, 42, 250, 0.748));
+    --helper-color:#ffff;
+}
+
+.header{
+    width: 100%;
+    height: 8rem;
+    background-color: var(--background-color2);
+    box-shadow: 0.5rem 0rem 1rem 0rem rgba(0, 0, 0, 0.4);
+}
+.logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    height: 8rem;
+}
+
+.logo-img{
+    width: 3rem;
+    height: 3rem;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(2,1fr);
+    gap: 0.22rem;
+    /* border: 2px solid black; */
+    animation: rotation 4s linear infinite;
+}
+
+@keyframes rotation {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+        transition-duration: 8s;
+
+    }
+}
+.box{
+    width: 100%;
+    height: 100%;
+    /* border: 2px solid red; */
+    box-shadow: 0 0 1rem 0rem rgba(0, 0, 0, 0.1);
+}
+.box1{
+    border-top-right-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+    background-image: linear-gradient(to right, rgba(10, 209, 10, 0.874),rgba(11, 91, 229, 0.814));
+}
+.box2{
+    border-top-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    background-image: linear-gradient(to left, rgba(10, 209, 10, 0.874),rgba(11, 91, 229, 0.814));
+
+
+}
+.box3{
+    border-top-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    background-image: linear-gradient(to right, rgba(10, 209, 10, 0.874),rgba(11, 91, 229, 0.814));
+
+}
+.box4{
+    border-top-right-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+    background-image: linear-gradient(to left, rgba(10, 209, 10, 0.874),rgba(11, 91, 229, 0.814));
+
+}
+
+.logo-text{
+    font-size: 3rem;
+    font-weight: 500;
+}
+
+
+/*---------------- add notes btn ----------------------*/
+.add-btn-container{
+    height: 5rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.add-notes{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem 0.5rem;
+    position: relative;
+    z-index: 2;
+}
+.add-btn::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3rem;
+    height: 100%;
+    background-image: linear-gradient(to left, rgba(10, 209, 10, 0.874),rgba(11, 91, 229, 0.814));
+    border-radius: 50px;
+    transition: 0.3s linear;
+    z-index: -1;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.add-btn:hover::before{
+    width: 100%;
+}
+.add-notes img{
+    width: 2rem;
+}
+
+
+.add-notes .add-btn{
+    border: none;
+    background-color: transparent;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s linear;
+}
+.add-btn:hover{
+    color: #fff;
+}
+/*------------------- note store container ----------------------*/
+
+
+.notes-container{
+    margin-top: 2rem;
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 4rem;
+    /* border: 2px solid black; */
+    transition: all 0.3s linear;
+}
+.notes-container .notes{
+    display: block;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-image: linear-gradient(to left, rgba(10, 209, 10, 0.795),rgba(11, 229, 214, 0.69));
+    box-shadow: 1rem 1rem 0rem -0.1rem rgba(113, 239, 203, 0.918);
+    transition: all 0.3s linear;
+    /* overflow-y: scroll; */
+}
+.operation{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+.operation .edit{
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50px;
+    border: none;
+    outline: none;
+    transition: all 0.3s linear;
+    box-shadow: 0 0 0.5rem 0rem rgba(0, 128, 0, 0.378);
+    background-color:var(--background-color1);
+    cursor: pointer;
+}
+.operation .delete{
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50px;
+    border: none;
+    outline: none;
+    transition: all 0.3s linear;
+    box-shadow: 0 0 0.5rem 0rem rgba(0, 128, 0, 0.463);
+    background-color:var(--background-color1);
+    cursor: pointer;
+}
+.edit .fa-pen-to-square{
+    color: rgb(3, 157, 3);
+}
+.delete .fa-trash{
+    color:  rgb(245, 85, 85);
+}
+.operation .edit:hover{
+    background-color: rgba(0, 128, 0, 0);
+}
+.operation .edit:hover .fa-pen-to-square{
+    color: #fff;
+}
+.operation .delete:hover{
+    background-color: rgb(245, 85, 85);
+}
+.operation .delete:hover .fa-trash{
+    color: #fff;
+}
+
+.main{
+    width: 100%;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    transition: all 0.3s linear;
+    font-size: 1.8rem;
+    color: #000;
+    font-size: bold;
+    font-family: 'Lato';
+    height: 8rem;
+    border-radius: 0.5rem;
+}
+
+#mess{
+    width: 100%;
+    padding: 0.5rem;
+    border: none;
+    background-color: transparent;
+    resize: none;
+    outline: none;
+    transition: all 0.3s linear;
+    font-size: 1.8rem;
+    color: #000;
+    font-size: bold;
+    font-family: 'Lato';
+    height: 8rem;
+    border-radius: 0.5rem;
+    /* box-shadow:inset 0rem 0rem 1rem -0.1rem rgba(12, 199, 146, 0.992); */
+
+}
+#mess::selection{
+    background-color: #fff;
+    border-radius: 0.5rem;
+    color: #000;
+    font-weight: bold;
+    padding: 0.2rem;
+}
+
+.hidden{
+    display: none;
+}
+
+@media (max-width:140rem) {
+    .container{
+        padding: 1rem;
+    }
+}
+
+@media (max-width:960px) {
+    .notes-container{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media (max-width:576px) {
+    .notes-container{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+    }
+}
